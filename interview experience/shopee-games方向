@@ -6,3 +6,4 @@
 6，一个可以不断输入数字的数组，每次输入一个数字，输出第K大的数字
 7，创建一个表user，字段有userId，name，主键是userId，name也建立索引，
 那么Select * from user where name>"abc" limit 1000000 100这条sql语句能有什么优化吗？
+  select * from user where id>(select id from user order by id limit 1000000 1) And where name>"abc limit 100
